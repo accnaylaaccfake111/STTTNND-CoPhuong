@@ -10,7 +10,7 @@ const QrScanner = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [cameras, setCameras] = useState([]);
   const [selectedCamera, setSelectedCamera] = useState('');
-  const scannerRef = useRef(null);
+  // const scannerRef = useRef(null);
 
   // Kiểm tra thiết bị mobile/desktop
   useEffect(() => {
