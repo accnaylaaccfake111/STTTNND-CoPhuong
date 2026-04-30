@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Scanner } from '@yudiel/react-qr-scanner';
 
 const QrScanner = () => {
@@ -10,15 +10,12 @@ const QrScanner = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [cameras, setCameras] = useState([]);
   const [selectedCamera, setSelectedCamera] = useState('');
-  // const scannerRef = useRef(null);
 
   // Kiểm tra thiết bị mobile/desktop
   useEffect(() => {
     const checkDevice = () => {
       const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       setIsMobile(mobile);
-      
-      // Trên desktop, mặc định dùng camera user (trước)
       if (!mobile) {
         setCameraFacing('user');
       }
@@ -33,7 +30,6 @@ const QrScanner = () => {
         const devices = await navigator.mediaDevices.enumerateDevices();
         const videoDevices = devices.filter(device => device.kind === 'videoinput');
         setCameras(videoDevices);
-        
         if (videoDevices.length > 0) {
           setSelectedCamera(videoDevices[0].deviceId);
         }
@@ -86,7 +82,6 @@ const QrScanner = () => {
       setIsScanning(false);
       setError(null);
       
-      // Rung nhẹ nếu là điện thoại
       if (isMobile && window.navigator && window.navigator.vibrate) {
         window.navigator.vibrate(200);
       }
@@ -135,7 +130,6 @@ const QrScanner = () => {
     }
   };
 
-  // Styles responsive
   const styles = {
     container: {
       textAlign: 'center',
@@ -292,7 +286,6 @@ const QrScanner = () => {
               style={{ width: '100%', height: 'auto' }}
             />
             
-            {/* Khung quét hướng dẫn */}
             <div style={{
               position: 'absolute',
               top: '50%',
@@ -309,7 +302,6 @@ const QrScanner = () => {
             }} />
           </div>
 
-          {/* Điều khiển camera - khác nhau cho mobile và desktop */}
           <div style={styles.buttonGroup}>
             {isMobile ? (
               <button
