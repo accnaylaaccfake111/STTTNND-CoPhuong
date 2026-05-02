@@ -1,29 +1,150 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Scanner } from '@yudiel/react-qr-scanner';
 import './QuestionsPage.css';
 
+// Dữ liệu 20 câu hỏi đã cập nhật answerLink thành link đầy đủ (có domain)
 const questions = [
-  { id: 1, text: 'Nguyên tố nhẹ nhất, chiếm 75% khối lượng vũ trụ?', hint: 'Ký hiệu H, số hiệu 1', answerLink: '/nguyen-to/1' },
-  { id: 2, text: 'Khí hiếm thường dùng bơm bóng bay, rất nhẹ?', hint: 'Ký hiệu He, số hiệu 2', answerLink: '/nguyen-to/2' },
-  { id: 3, text: 'Kim loại kiềm nhẹ nhất, dùng trong pin?', hint: 'Ký hiệu Li, số hiệu 3', answerLink: '/nguyen-to/3' },
-  { id: 4, text: 'Kim loại cứng, nhẹ, dùng trong hợp kim đồng?', hint: 'Ký hiệu Be, số hiệu 4', answerLink: '/nguyen-to/4' },
-  { id: 5, text: 'Á kim, thành phần của axit boric?', hint: 'Ký hiệu B, số hiệu 5', answerLink: '/nguyen-to/5' },
-  { id: 6, text: 'Nguyên tố cơ bản của sự sống, tạo thành kim cương?', hint: 'Ký hiệu C, số hiệu 6', answerLink: '/nguyen-to/6' },
-  { id: 7, text: 'Khí chiếm 78% không khí, thành phần của amoniac?', hint: 'Ký hiệu N, số hiệu 7', answerLink: '/nguyen-to/7' },
-  { id: 8, text: 'Khí cần cho hô hấp, chiếm 21% không khí?', hint: 'Ký hiệu O, số hiệu 8', answerLink: '/nguyen-to/8' },
-  { id: 9, text: 'Halogen hoạt động mạnh nhất, dùng trong kem đánh răng?', hint: 'Ký hiệu F, số hiệu 9', answerLink: '/nguyen-to/9' },
-  { id: 10, text: 'Khí hiếm dùng trong biển quảng cáo (đèn neon)?', hint: 'Ký hiệu Ne, số hiệu 10', answerLink: '/nguyen-to/10' },
-  { id: 11, text: 'Kim loại kiềm màu trắng bạc, phản ứng mạnh với nước?', hint: 'Ký hiệu Na, số hiệu 11', answerLink: '/nguyen-to/11' },
-  { id: 12, text: 'Kim loại nhẹ, cháy sáng, thành phần diệp lục?', hint: 'Ký hiệu Mg, số hiệu 12', answerLink: '/nguyen-to/12' },
-  { id: 13, text: 'Kim loại phổ biến nhất vỏ Trái Đất, dùng làm lon nước?', hint: 'Ký hiệu Al, số hiệu 13', answerLink: '/nguyen-to/13' },
-  { id: 14, text: 'Á kim quan trọng trong chất bán dẫn?', hint: 'Ký hiệu Si, số hiệu 14', answerLink: '/nguyen-to/14' },
-  { id: 15, text: 'Phi kim, dùng trong diêm, phân bón?', hint: 'Ký hiệu P, số hiệu 15', answerLink: '/nguyen-to/15' },
-  { id: 16, text: 'Chất rắn màu vàng, mùi trứng thối khi cháy?', hint: 'Ký hiệu S, số hiệu 16', answerLink: '/nguyen-to/16' },
-  { id: 17, text: 'Halogen màu vàng lục, dùng khử trùng nước?', hint: 'Ký hiệu Cl, số hiệu 17', answerLink: '/nguyen-to/17' },
-  { id: 18, text: 'Khí hiếm dùng trong hàn và bảo vệ?', hint: 'Ký hiệu Ar, số hiệu 18', answerLink: '/nguyen-to/18' },
-  { id: 19, text: 'Kim loại kiềm, cần thiết cho cơ thể, có trong chuối?', hint: 'Ký hiệu K, số hiệu 19', answerLink: '/nguyen-to/19' },
-  { id: 20, text: 'Kim loại kiềm thổ, cần cho xương và răng?', hint: 'Ký hiệu Ca, số hiệu 20', answerLink: '/nguyen-to/20' }
+  { 
+    id: 1, 
+    text: 'Nguyên tố nào là chất khí nhẹ nhất trong các chất khí, thường kết hợp với Oxygen để tạo thành nước?', 
+    hint: 'Nguyên tố có số hiệu nguyên tử là 1', 
+    answerLink: 'https://dinhdanhnguyento.vercel.app/nguyen-to/1',
+    symbol: 'H'
+  },
+  { 
+    id: 2, 
+    text: 'Khí hiếm nào khi hít vào sẽ khiến giọng nói của bạn trở nên cao vút như nhân vật hoạt hình?', 
+    hint: 'Khí hiếm có số hiệu nguyên tử là 2', 
+    answerLink: 'https://qrco.de/bgmJgs',
+    symbol: 'He'
+  },
+  { 
+    id: 3, 
+    text: 'Kim loại kiềm nào có thể nổi trên dầu hỏa và là thành phần cực kỳ quan trọng của pin sạc điện thoại, xe điện?', 
+    hint: 'Kim loại kiềm ở chu kì 2, nhóm IA', 
+    answerLink: 'https://qrco.de/bgmJh0',
+    symbol: 'Li'
+  },
+  { 
+    id: 4, 
+    text: 'Kim loại nào có màu xám thép, giúp máy bay nhẹ hơn, tiết kiệm nhiên liệu nhưng bụi của nó lại gây độc cho phổi?', 
+    hint: 'Kim loại kiềm thổ ở chu kì 2, nhóm IIA', 
+    answerLink: 'https://qrco.de/bgmJh7 ',
+    symbol: 'Be'
+  },
+  { 
+    id: 5, 
+    text: 'Á kim nào thường được dùng để sản xuất thủy tinh chịu nhiệt trong phòng thí nghiệm và giúp tăng độ bền cho kính điện thoại?', 
+    hint: 'Á kim có số hiệu nguyên tử là 5', 
+    answerLink: 'https://qrco.de/bgmJhW',
+    symbol: 'B'
+  },
+  { 
+    id: 6, 
+    text: 'Nguyên tố nào được mệnh danh là "chiến thần ngoại giao" và có hai dạng thù hình nổi bật trái ngược nhau là than chì và kim cương?', 
+    hint: 'Nguyên tố cơ sở của sự sống, số hiệu 6', 
+    answerLink: 'https://qrco.de/bgmJha',
+    symbol: 'C'
+  },
+  { 
+    id: 7, 
+    text: 'Chất khí nào chiếm 78% bầu khí quyển Trái Đất, được coi là "Dinh dưỡng xanh" cho cây trồng?', 
+    hint: 'Khí không màu, không mùi, số hiệu 7', 
+    answerLink: 'https://qrco.de/bgmJhd',
+    symbol: 'N'
+  },
+  { 
+    id: 8, 
+    text: 'Khí nào được mệnh danh là "Hơi thở của hành tinh", vô cùng cần thiết để duy trì sự sống và sự cháy?', 
+    hint: 'Khí cần thiết cho sự hô hấp, số hiệu 8', 
+    answerLink: 'https://qrco.de/bgmJhn',
+    symbol: 'O'
+  },
+  { 
+    id: 9, 
+    text: 'Phi kim nào hoạt động hóa học mạnh nhất, mà acid của nó có thể ăn mòn cả thủy tinh, và hợp chất thường có trong kem đánh răng?', 
+    hint: 'Halogen có số hiệu nguyên tử là 9', 
+    answerLink: 'https://qrco.de/bgmJhq',
+    symbol: 'F'
+  },
+  { 
+    id: 10, 
+    text: 'Khí hiếm nào phát ra ánh sáng rực rỡ khi có dòng điện chạy qua, rất phổ biến trong các biển quảng cáo phát sáng ở đô thị?', 
+    hint: 'Khí hiếm thường dùng làm đèn màu, số hiệu 10', 
+    answerLink: 'https://qrco.de/bgmJhu',
+    symbol: 'Ne'
+  },
+  { 
+    id: 11, 
+    text: 'Kim loại kiềm nào rất mềm (có thể cắt bằng dao nhựa) và là thành phần quan trọng tạo nên muối ăn hàng ngày?', 
+    hint: 'Kim loại kiềm ở chu kì 3, có trong muối ăn', 
+    answerLink: 'https://qrco.de/bgmJi3',
+    symbol: 'Na'
+  },
+  { 
+    id: 12, 
+    text: 'Kim loại nào từng được dùng làm đèn flash trong nhiếp ảnh đời cũ nhờ khả năng phát ra ánh sáng trắng chói lóa khi cháy?', 
+    hint: 'Kim loại kiềm thổ, có số hiệu nguyên tử 12', 
+    answerLink: 'https://qrco.de/bgmJi6',
+    symbol: 'Mg'
+  },
+  { 
+    id: 13, 
+    text: 'Kim loại nào phổ biến nhất trong vỏ Trái Đất, siêu nhẹ, chống gỉ tốt và thường được dùng làm vỏ lon nước ngọt?', 
+    hint: 'Kim loại phổ biến nhất trong vỏ Trái Đất, số hiệu 13', 
+    answerLink: 'https://qrco.de/bgmJi7',
+    symbol: 'Al'
+  },
+  { 
+    id: 14, 
+    text: 'Á kim nào được tìm thấy nhiều trong cát, đá và cực kỳ quan trọng trong công nghệ hiện đại (sản xuất chip, máy tính)?', 
+    hint: 'Á kim quan trọng trong công nghệ bán dẫn', 
+    answerLink: 'https://qrco.de/bgmJi8',
+    symbol: 'Si'
+  },
+  { 
+    id: 15, 
+    text: 'Phi kim nào có trong đầu que diêm để dễ bắt lửa và đóng vai trò quan trọng trong việc tạo xương, răng, DNA?', 
+    hint: 'Phi kim thuộc nhóm VA, số hiệu 15', 
+    answerLink: 'https://qrco.de/bgmJiD',
+    symbol: 'P'
+  },
+  { 
+    id: 16, 
+    text: 'Phi kim nào có màu vàng tươi đặc trưng, từng bị gắn liền với "núi lửa địa ngục" và có mùi trứng thối khi cháy tạo hợp chất?', 
+    hint: 'Phi kim có màu vàng đặc trưng, số hiệu 16', 
+    answerLink: 'https://qrco.de/bgmJiK',
+    symbol: 'S'
+  },
+  { 
+    id: 17, 
+    text: 'Chất khí màu vàng lục nhạt nào thường được sử dụng trong sinh hoạt để tiêu diệt vi khuẩn và khử trùng nước hồ bơi?', 
+    hint: 'Halogen dùng để khử trùng nước, số hiệu 17', 
+    answerLink: 'https://qrco.de/bgmJiT',
+    symbol: 'Cl'
+  },
+  { 
+    id: 18, 
+    text: 'Khí hiếm nào có tên mang ý nghĩa là "lười biếng" và được ứng dụng bơm vào giữa các lớp kính cửa sổ để cách nhiệt?', 
+    hint: 'Khí hiếm chiếm khoảng 1% không khí', 
+    answerLink: 'https://qrco.de/bgmJiX',
+    symbol: 'Ar'
+  },
+  { 
+    id: 19, 
+    text: 'Kim loại kiềm nào giúp tim đập ổn định, nhưng khi thả vào nước lại phản ứng bốc cháy dữ dội với ngọn lửa màu tím?', 
+    hint: 'Kim loại kiềm ở chu kì 4, nhóm IA', 
+    answerLink: 'https://qrco.de/bgmJie',
+    symbol: 'K'
+  },
+  { 
+    id: 20, 
+    text: 'Nguyên tố nào là thành phần chính của đá vôi, phấn viết bảng và chiếm phần lớn khối lượng trong xương, răng của chúng ta?', 
+    hint: 'Kim loại kiềm thổ, thành phần chính của đá vôi', 
+    answerLink: 'https://qrco.de/bgmJip',
+    symbol: 'Ca'
+  }
 ];
 
 const QuestionPage = () => {
@@ -33,14 +154,31 @@ const QuestionPage = () => {
   });
   const [feedback, setFeedback] = useState({ message: '', type: '' });
   const [isAnimating, setIsAnimating] = useState(false);
-  const [manualLink, setManualLink] = useState('');
+  const [manualAnswer, setManualAnswer] = useState(''); 
   const [scanResult, setScanResult] = useState(null);
   const [cameraFacing, setCameraFacing] = useState('environment');
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Kiểm tra thiết bị
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(mobile);
+    };
+    checkMobile();
+    // Lắng nghe thay đổi kích thước
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const randomizeQuestion = () => {
     setIsAnimating(true);
     setFeedback({ message: '', type: '' });
-    setManualLink('');
+    setManualAnswer(''); 
     setScanResult(null);
     let newIndex;
     do {
@@ -50,8 +188,11 @@ const QuestionPage = () => {
     setTimeout(() => setIsAnimating(false), 300);
   };
 
-  const checkAnswer = (scannedLink) => {
+  const checkAnswerQR = (scannedLink) => {
     if (!scannedLink) return;
+    
+    // Hàm này rất mạnh mẽ: Nó chỉ lấy phần pathname (VD: "/nguyen-to/5") 
+    // từ cả link quét được VÀ link trong database để so sánh.
     const normalizeLink = (link) => {
       try {
         const url = new URL(link, window.location.origin);
@@ -60,6 +201,7 @@ const QuestionPage = () => {
         return link.startsWith('/') ? link : `/${link}`;
       }
     };
+    
     if (normalizeLink(scannedLink) === normalizeLink(currentQuestion.answerLink)) {
       setFeedback({ message: '🎉 Chính xác! Tuyệt vời! 🎉', type: 'success' });
     } else {
@@ -71,13 +213,21 @@ const QuestionPage = () => {
     if (detectedCodes && detectedCodes.length > 0) {
       const scannedValue = detectedCodes[0].rawValue;
       setScanResult(scannedValue);
-      checkAnswer(scannedValue);
+      checkAnswerQR(scannedValue);
     }
   };
 
   const handleManualCheck = () => {
-    if (manualLink.trim()) checkAnswer(manualLink.trim());
-    else setFeedback({ message: '📝 Vui lòng nhập link hoặc quét mã QR', type: 'error' });
+    if (!manualAnswer.trim()) {
+      setFeedback({ message: '📝 Vui lòng nhập ký hiệu nguyên tố', type: 'error' });
+      return;
+    }
+    // So sánh ký hiệu nhập vào với ký hiệu trong dữ liệu (không phân biệt hoa thường)
+    if (manualAnswer.trim().toLowerCase() === currentQuestion.symbol.toLowerCase()) {
+      setFeedback({ message: '🎉 Chính xác! Tuyệt vời! 🎉', type: 'success' });
+    } else {
+      setFeedback({ message: '😢 Sai rồi! Hãy thử lại nhé! 😢', type: 'error' });
+    }
   };
 
   return (
@@ -90,25 +240,55 @@ const QuestionPage = () => {
             <div className="question-text">{currentQuestion.text}</div>
             <div className="question-hint">💡 Gợi ý: {currentQuestion.hint}</div>
           </div>
+          
           <button className="random-btn" onClick={randomizeQuestion}>🔄 Đổi câu hỏi khác</button>
-        </div>
-        <div className="question-right-col">
-          <div className="scanner-area-simple">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3>📷 Quét mã QR đáp án</h3>
-              <button onClick={() => setCameraFacing(prev => prev === 'environment' ? 'user' : 'environment')} className="camera-switch-btn">🔄 Đổi camera</button>
-            </div>
-            <Scanner key={cameraFacing} onScan={handleScan} onError={console.error} constraints={{ facingMode: { exact: cameraFacing } }} scanDelay={500} style={{ width: '100%', borderRadius: '20px' }} />
-          </div>
-          <div className="manual-area">
-            <h3>⌨️ Hoặc dán link đáp án:</h3>
+
+          <div className="manual-area" style={{ marginTop: '20px' }}>
+            <h3>⌨️ Hoặc nhập ký hiệu nguyên tố:</h3>
             <div className="manual-group">
-              <input type="text" placeholder="Ví dụ: /nguyen-to/1  hoặc  https://..." value={manualLink} onChange={(e) => setManualLink(e.target.value)} />
+              <input
+                type="text"
+                placeholder="Ví dụ: H, He, Li, Be..."
+                value={manualAnswer}
+                onChange={(e) => setManualAnswer(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleManualCheck()} 
+              />
               <button onClick={handleManualCheck}>Kiểm tra</button>
             </div>
           </div>
-          {feedback.message && <div className={`feedback-animated ${feedback.type}`}>{feedback.message}</div>}
-          {scanResult && !feedback.message && <div className="scan-info-simple"><strong>Link vừa quét:</strong> <code>{scanResult}</code></div>}
+
+          {feedback.message && (
+            <div className={`feedback-animated ${feedback.type}`} style={{ marginTop: '15px' }}>
+              {feedback.message}
+            </div>
+          )}
+
+        </div>
+        <div className="question-right-col">
+          <div className="scanner-area-simple">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
+              <h3>📷 Quét mã QR thẻ bài</h3>
+              {isMobile && (
+                <button onClick={() => setCameraFacing(prev => prev === 'environment' ? 'user' : 'environment')} className="camera-switch-btn">
+                  🔄 {cameraFacing === 'environment' ? 'Chuyển cam trước' : 'Chuyển cam sau'}
+                </button>
+              )}
+            </div>
+            <Scanner
+              key={cameraFacing}
+              onScan={handleScan}
+              onError={console.error}
+              constraints={isMobile ? { facingMode: { exact: cameraFacing } } : undefined}
+              scanDelay={500}
+              style={{ width: '100%', borderRadius: '20px' }}
+            />
+          </div>
+          
+          {scanResult && !feedback.message && (
+            <div className="scan-info-simple">
+              <strong>Link vừa quét:</strong> <code>{scanResult}</code>
+            </div>
+          )}
         </div>
       </div>
     </div>
