@@ -1,6 +1,18 @@
+/* --- HIỆU ỨNG POP-UP TỪNG PHẦN --- */
+@keyframes popupEffect {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .home-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,18 +23,24 @@
 
 .home-header {
   text-align: center;
-  color: white;
+  color: #0369a1; 
   margin-bottom: 50px;
+  
+  /* Pop-up cho header xuất hiện đầu tiên */
+  opacity: 0; 
+  animation: popupEffect 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.1s; 
 }
 
 .home-header h1 {
   font-size: 2.8rem;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
 }
 
 .home-header p {
   font-size: 1.2rem;
+  color: #075985;
   opacity: 0.9;
 }
 
@@ -41,13 +59,20 @@
   width: 280px;
   text-align: center;
   cursor: pointer;
+  box-shadow: 0 10px 20px rgba(2, 132, 199, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  
+  /* Cài đặt animation chung cho TẤT CẢ các card */
+  opacity: 0; 
+  animation: popupEffect 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  /* Cả hai card đều chờ 0.3s rồi hiện cùng lúc */
+  animation-delay: 0.3s; 
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+  /* Ghi đè transform khi hover để không bị xung đột với transform của animation */
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 20px 30px rgba(2, 132, 199, 0.15);
 }
 
 .card-icon {
@@ -57,36 +82,44 @@
 
 .card h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: #0284c7; 
   margin-bottom: 15px;
 }
 
 .card p {
-  color: #666;
+  color: #64748b;
   line-height: 1.5;
   margin-bottom: 25px;
 }
 
 .card-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
   border: none;
   padding: 10px 20px;
   border-radius: 40px;
   color: white;
+  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .card-btn:hover {
   opacity: 0.9;
+  transform: scale(1.05); 
 }
 
 .home-footer {
   margin-top: 60px;
-  color: white;
+  color: #0369a1;
   text-align: center;
   font-size: 0.9rem;
+  font-weight: 500;
+  
+  /* Footer xuất hiện sau khi các card đã hiện ra */
+  opacity: 0;
+  animation: popupEffect 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.5s;
 }
 
 @media (max-width: 650px) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Home.css'; // tạo style riêng nếu muốn
+import './Home.css'; 
 
 const Home = () => {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>🔬 Ứng dụng Hóa học & QR</h1>
+        <h1>🔬 ĐỊNH DANH NGUYÊN TỐ</h1>
         <p>Khám phá bảng tuần hoàn hoặc quét mã QR để trả lời câu hỏi</p>
       </header>
 

@@ -35,21 +35,21 @@ const questions = [
   },
   { 
     id: 5, 
-    text: 'Á kim nào thường được dùng để sản xuất thủy tinh chịu nhiệt trong phòng thí nghiệm và giúp tăng độ bền cho kính điện thoại?', 
-    hint: 'Á kim có số hiệu nguyên tử là 5', 
+    text: 'Phi kim nào thường được dùng để sản xuất thủy tinh chịu nhiệt trong phòng thí nghiệm và giúp tăng độ bền cho kính điện thoại?', 
+    hint: 'Phi kim có số hiệu nguyên tử là 5', 
     answerLink: 'https://qrco.de/bgmJhW',
     symbol: 'B'
   },
   { 
     id: 6, 
     text: 'Nguyên tố nào được mệnh danh là "chiến thần ngoại giao" và có hai dạng thù hình nổi bật trái ngược nhau là than chì và kim cương?', 
-    hint: 'Nguyên tố cơ sở của sự sống, số hiệu 6', 
+    hint: 'Nguyên tố giúp lọc nước, lọc không khí, số hiệu 6', 
     answerLink: 'https://qrco.de/bgmJha',
     symbol: 'C'
   },
   { 
     id: 7, 
-    text: 'Chất khí nào chiếm 78% bầu khí quyển Trái Đất, được coi là "Dinh dưỡng xanh" cho cây trồng?', 
+    text: 'Chất khí nào chiếm 78% bầu khí quyển Trái Đất, được coi là "dinh dưỡng xanh" cho cây trồng?', 
     hint: 'Khí không màu, không mùi, số hiệu 7', 
     answerLink: 'https://qrco.de/bgmJhd',
     symbol: 'N'
@@ -57,14 +57,14 @@ const questions = [
   { 
     id: 8, 
     text: 'Khí nào được mệnh danh là "Hơi thở của hành tinh", vô cùng cần thiết để duy trì sự sống và sự cháy?', 
-    hint: 'Khí cần thiết cho sự hô hấp, số hiệu 8', 
+    hint: 'Khí giúp bạn thở mỗi ngày, số hiệu 8', 
     answerLink: 'https://qrco.de/bgmJhn',
     symbol: 'O'
   },
   { 
     id: 9, 
-    text: 'Phi kim nào hoạt động hóa học mạnh nhất, mà acid của nó có thể ăn mòn cả thủy tinh, và hợp chất thường có trong kem đánh răng?', 
-    hint: 'Halogen có số hiệu nguyên tử là 9', 
+    text: 'Phi kim nào hoạt động hóa học mạnh nhất, mà acid của nó có thể ăn mòn cả thủy tinh?', 
+    hint: 'Nguyên tố có mặt trong kem đánh răng, có số hiệu nguyên tử là 9', 
     answerLink: 'https://qrco.de/bgmJhq',
     symbol: 'F'
   },
@@ -77,7 +77,7 @@ const questions = [
   },
   { 
     id: 11, 
-    text: 'Kim loại kiềm nào rất mềm (có thể cắt bằng dao nhựa) và là thành phần quan trọng tạo nên muối ăn hàng ngày?', 
+    text: 'Kim loại kiềm nào rất mềm (có thể cắt bằng dao nhựa) và là thành phần tạo nên muối ăn hàng ngày?', 
     hint: 'Kim loại kiềm ở chu kì 3, có trong muối ăn', 
     answerLink: 'https://qrco.de/bgmJi3',
     symbol: 'Na'
@@ -91,22 +91,22 @@ const questions = [
   },
   { 
     id: 13, 
-    text: 'Kim loại nào phổ biến nhất trong vỏ Trái Đất, siêu nhẹ, chống gỉ tốt và thường được dùng làm vỏ lon nước ngọt?', 
-    hint: 'Kim loại phổ biến nhất trong vỏ Trái Đất, số hiệu 13', 
+    text: 'Kim loại nào phổ biến nhất trong vỏ Trái Đất, siêu nhẹ, chống gỉ tốt?', 
+    hint: 'Kim loại dùng làm vỏ lon nước ngọt, có số hiệu 13', 
     answerLink: 'https://qrco.de/bgmJi7',
     symbol: 'Al'
   },
   { 
     id: 14, 
-    text: 'Á kim nào được tìm thấy nhiều trong cát, đá và cực kỳ quan trọng trong công nghệ hiện đại (sản xuất chip, máy tính)?', 
-    hint: 'Á kim quan trọng trong công nghệ bán dẫn', 
+    text: 'Phi kim nào được tìm thấy nhiều trong cát, đá và cực kỳ quan trọng trong công nghệ hiện đại (sản xuất chip, máy tính)?', 
+    hint: 'Phi kim quan trọng trong công nghệ bán dẫn, có số hiệu 14', 
     answerLink: 'https://qrco.de/bgmJi8',
     symbol: 'Si'
   },
   { 
     id: 15, 
     text: 'Phi kim nào có trong đầu que diêm để dễ bắt lửa và đóng vai trò quan trọng trong việc tạo xương, răng, DNA?', 
-    hint: 'Phi kim thuộc nhóm VA, số hiệu 15', 
+    hint: 'Phi kim được tìm ra từ ... nước tiểu, số hiệu 15', 
     answerLink: 'https://qrco.de/bgmJiD',
     symbol: 'P'
   },
@@ -119,29 +119,29 @@ const questions = [
   },
   { 
     id: 17, 
-    text: 'Chất khí màu vàng lục nhạt nào thường được sử dụng trong sinh hoạt để tiêu diệt vi khuẩn và khử trùng nước hồ bơi?', 
-    hint: 'Halogen dùng để khử trùng nước, số hiệu 17', 
+    text: 'Chất khí nào màu vàng lục nhạt và có mùi hắc, có tính tẩy rửa và sát trùng hiệu quả?', 
+    hint: 'Nguyên tố này có trong nước hồ bơi, số hiệu 17', 
     answerLink: 'https://qrco.de/bgmJiT',
     symbol: 'Cl'
   },
   { 
     id: 18, 
-    text: 'Khí hiếm nào có tên mang ý nghĩa là "lười biếng" và được ứng dụng bơm vào giữa các lớp kính cửa sổ để cách nhiệt?', 
-    hint: 'Khí hiếm chiếm khoảng 1% không khí', 
+    text: 'Khí hiếm nào chiếm khoảng 1% không khí, được ứng dụng bơm vào giữa các lớp kính cửa sổ để cách nhiệt?', 
+    hint: 'Khí hiếm có tên nghĩa là "lười biếng"', 
     answerLink: 'https://qrco.de/bgmJiX',
     symbol: 'Ar'
   },
   { 
     id: 19, 
-    text: 'Kim loại kiềm nào giúp tim đập ổn định, nhưng khi thả vào nước lại phản ứng bốc cháy dữ dội với ngọn lửa màu tím?', 
+    text: 'Kim loại kiềm nào giúp tim đập ổn định, nhưng khi thả vào nước lại bốc cháy dữ dội với ngọn lửa màu tím?', 
     hint: 'Kim loại kiềm ở chu kì 4, nhóm IA', 
     answerLink: 'https://qrco.de/bgmJie',
     symbol: 'K'
   },
   { 
     id: 20, 
-    text: 'Nguyên tố nào là thành phần chính của đá vôi, phấn viết bảng và chiếm phần lớn khối lượng trong xương, răng của chúng ta?', 
-    hint: 'Kim loại kiềm thổ, thành phần chính của đá vôi', 
+    text: 'Nguyên tố nào là thành phần chính của đá vôi, phấn viết bảng?', 
+    hint: 'Nguyên tố tạo nên xương và răng của chúng ta', 
     answerLink: 'https://qrco.de/bgmJip',
     symbol: 'Ca'
   }
