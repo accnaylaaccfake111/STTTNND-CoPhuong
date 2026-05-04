@@ -640,3 +640,52 @@
     padding: 15px;
   }
 }
+
+/* =========================================
+   MÀU SẮC PHÂN LOẠI (TONE NHẠT PASTEL & VIỀN DÀY RÕ RÀNG)
+   ========================================= */
+
+.element-card {
+  /* Tăng độ dày viền lên 3px để tách biệt hoàn toàn với nền trang */
+  border: 3px solid transparent; 
+  transition: all 0.3s ease;
+}
+
+/* 1. NHÓM KIM LOẠI - MÀU XANH DƯƠNG PASTEL */
+.element-card.group-metal {
+  background: #f4faff; 
+  border-color: #bae6fd; /* Đậm hơn nền một tông để hiện rõ viền */
+}
+.element-card.group-metal .atomic-number { color: #7dd3fc; border-bottom-color: #e0f2fe; }
+.element-card.group-metal .symbol { color: #0284c7; text-shadow: none; }
+.element-card.group-metal .element-name { background: #e0f2fe; color: #0369a1; font-weight: 600; }
+.element-card.group-metal:hover { 
+  box-shadow: 0 15px 25px rgba(2, 132, 199, 0.15); 
+  border-color: #7dd3fc; /* Đậm hơn nữa khi trỏ chuột vào */
+}
+
+/* 2. NHÓM PHI KIM & Á KIM - MÀU VÀNG PASTEL */
+.element-card.group-nonmetal {
+  background: #fffcf0; 
+  border-color: #fef08a;
+}
+.element-card.group-nonmetal .atomic-number { color: #fde047; border-bottom-color: #fef9c3; }
+.element-card.group-nonmetal .symbol { color: #ca8a04; text-shadow: none; }
+.element-card.group-nonmetal .element-name { background: #fef9c3; color: #a16207; font-weight: 600; }
+.element-card.group-nonmetal:hover { 
+  box-shadow: 0 15px 25px rgba(202, 138, 4, 0.15); 
+  border-color: #fde047; 
+}
+
+/* 3. NHÓM KHÍ HIẾM - MÀU XANH LÁ PASTEL */
+.element-card.group-noble {
+  background: #f4fdf7; 
+  border-color: #bbf7d0;
+}
+.element-card.group-noble .atomic-number { color: #86efac; border-bottom-color: #dcfce7; }
+.element-card.group-noble .symbol { color: #16a34a; text-shadow: none; }
+.element-card.group-noble .element-name { background: #dcfce7; color: #15803d; font-weight: 600; }
+.element-card.group-noble:hover { 
+  box-shadow: 0 15px 25px rgba(22, 163, 74, 0.15); 
+  border-color: #86efac; 
+}

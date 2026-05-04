@@ -340,7 +340,7 @@ const getElectronShells = (z) => {
 const AtomModel = ({ atomicNumber, symbol }) => {
   const shells = getElectronShells(atomicNumber);
   const center = 85; 
-  const ringRadii = [28, 45, 62, 79]; // Bán kính các lớp electron
+  const ringRadii = [28, 45, 62, 79]; 
 
   return (
     <div className="atom-svg-container">
@@ -364,7 +364,7 @@ const AtomModel = ({ atomicNumber, symbol }) => {
                 {/* Vòng quỹ đạo */}
                 <circle cx={center} cy={center} r={r} fill="none" stroke="#0284c7" strokeWidth="2.5" />
                 
-                {/* Dải hạt Electron rải đều trên vòng */}
+                {/* Dải hạt Electron */}
                 {Array.from({ length: electronCount }).map((_, eIndex) => {
                   const angle = (eIndex / electronCount) * 2 * Math.PI - Math.PI / 2;
                   const ex = center + r * Math.cos(angle);
@@ -438,19 +438,27 @@ const ElementPage = () => {
     return correct;
   };
 
+  // Hàm phân loại nhóm để cấp màu (Gộp Á kim vào Phi kim)
+  const getGroupClass = (classification) => {
+    if (classification.includes('Kim loại')) return 'group-metal';
+    if (classification.includes('Phi kim') || classification.includes('Á kim')) return 'group-nonmetal'; 
+    if (classification.includes('Khí hiếm')) return 'group-noble';
+    return '';
+  };
+
   return (
     <div className="element-page-container">
       <header className="element-header">
-        <h1>🧪 Bảng 20 nguyên tố hóa học đầu tiên</h1>
+        <h1>BẢNG NGUYÊN TỐ</h1>
         <p>Mỗi thẻ đại diện cho một nguyên tố – Bấm vào thẻ để xem thông tin chi tiết</p>
         <Link to="/" className="back-home">← Về trang chủ</Link>
       </header>
 
-      {/* Grid danh sách 20 nguyên tố */}
+      {/* Grid danh sách 20 nguyên tố - Tích hợp hàm đổi màu */}
       <div className="elements-grid">
         {elements.map((el, index) => (
           <div 
-            className="element-card" 
+            className={`element-card ${getGroupClass(el.classification)}`} 
             key={el.atomicNumber} 
             onClick={() => openModal(el)}
             style={{ animationDelay: `${index * 0.05}s` }} 
