@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import './ElementPage.css';
+import ChemistryChatbot from '../components/ChemistryChatbot';
 
 // Dữ liệu chi tiết cho toàn bộ 20 nguyên tố
 const elements = [
@@ -599,6 +600,8 @@ const ElementPage = () => {
           </div>
         </div>
       )}
+      {/* chatbot */}
+      <ChemistryChatbot />
     </div>
   );
 };
