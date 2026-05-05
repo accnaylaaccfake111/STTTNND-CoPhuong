@@ -154,7 +154,7 @@ const QuestionPage = () => {
   const [feedback, setFeedback] = useState({ message: '', type: '' });
   const [isAnimating, setIsAnimating] = useState(false);
   const [manualAnswer, setManualAnswer] = useState(''); 
-  const [cameraFacing, setCameraFacing] = useState('environment');
+  const [cameraFacing, setCameraFacing] = useState('environment'); 
   const [isMobile, setIsMobile] = useState(false);
   const [showResultModal, setShowResultModal] = useState(false);
   const [matchedElement, setMatchedElement] = useState(null);
@@ -233,12 +233,27 @@ const QuestionPage = () => {
            {feedback.message && <div className={`feedback-animated ${feedback.type}`}>{feedback.message}</div>}
         </div>
 
-        {/* Cột Phải: Máy quét QR */}
+        {/* Cột Phải: Cập nhật để sử dụng cameraFacing và isMobile */}
         <div className="question-right-col">
            <div className="scanner-area-simple">
-             <h3>📷 Quét mã QR thẻ bài</h3>
+             <div className="scanner-header" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <h3>📷 Quét mã QR</h3>
+                {/* Nếu là điện thoại, hiển thị nút đổi camera để sử dụng setCameraFacing */}
+                {isMobile && (
+                  <button 
+                    className="camera-switch-btn"
+                    onClick={() => setCameraFacing(prev => prev === 'environment' ? 'user' : 'environment')}
+                  >
+                    🔄 Đổi Camera
+                  </button>
+                )}
+             </div>
              <div className="scanner-wrapper">
-                <Scanner onScan={(detected) => checkAnswerQR(detected[0]?.rawValue)} />
+                <Scanner 
+                  // Sử dụng cameraFacing để điều khiển camera
+                  constraints={{ facingMode: cameraFacing }}
+                  onScan={(detected) => checkAnswerQR(detected[0]?.rawValue)} 
+                />
              </div>
            </div>
         </div>
