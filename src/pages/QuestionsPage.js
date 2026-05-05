@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Scanner } from '@yudiel/react-qr-scanner';
 import './QuestionsPage.css';
+import { elements } from '../data/elementsData';
+import AtomModel from '../components/AtomModel';
 
 // Dữ liệu 20 câu hỏi đã cập nhật answerLink thành link đầy đủ (có domain)
 const questions = [
@@ -148,149 +150,166 @@ const questions = [
 ];
 
 const QuestionPage = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(() => {
-    const randomIndex = Math.floor(Math.random() * questions.length);
-    return questions[randomIndex];
-  });
+  const [currentQuestion, setCurrentQuestion] = useState(() => questions[Math.floor(Math.random() * questions.length)]);
   const [feedback, setFeedback] = useState({ message: '', type: '' });
   const [isAnimating, setIsAnimating] = useState(false);
   const [manualAnswer, setManualAnswer] = useState(''); 
-  const [scanResult, setScanResult] = useState(null);
   const [cameraFacing, setCameraFacing] = useState('environment');
   const [isMobile, setIsMobile] = useState(false);
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [matchedElement, setMatchedElement] = useState(null);
 
-  // Kiểm tra thiết bị
   useEffect(() => {
-    const checkMobile = () => {
-      const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      setIsMobile(mobile);
-    };
-    checkMobile();
-    // Lắng nghe thay đổi kích thước
-    const handleResize = () => {
-      const mobile = window.innerWidth <= 768;
-      setIsMobile(mobile);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    setIsMobile(/Android|iPhone|iPad/i.test(navigator.userAgent));
   }, []);
 
-  const randomizeQuestion = () => {
-    setIsAnimating(true);
-    setFeedback({ message: '', type: '' });
-    setManualAnswer(''); 
-    setScanResult(null);
-    let newIndex;
-    do {
-      newIndex = Math.floor(Math.random() * questions.length);
-    } while (questions.length > 1 && questions[newIndex].id === currentQuestion.id);
-    setCurrentQuestion(questions[newIndex]);
-    setTimeout(() => setIsAnimating(false), 300);
+  const findElement = (symbol) => elements.find(el => el.symbol.toLowerCase() === symbol.toLowerCase());
+
+  const handleSuccess = () => {
+    const el = findElement(currentQuestion.symbol);
+    setMatchedElement(el);
+    setFeedback({ message: '🎉 Chính xác! Tuyệt vời! 🎉', type: 'success' });
+    setTimeout(() => { setShowResultModal(true); }, 500);
   };
 
   const checkAnswerQR = (scannedLink) => {
     if (!scannedLink) return;
-    
-    // Hàm này rất mạnh mẽ: Nó chỉ lấy phần pathname (VD: "/nguyen-to/5") 
-    // từ cả link quét được VÀ link trong database để so sánh.
-    const normalizeLink = (link) => {
-      try {
-        const url = new URL(link, window.location.origin);
-        return url.pathname;
-      } catch (e) {
-        return link.startsWith('/') ? link : `/${link}`;
-      }
+    const normalizePath = (link) => {
+      try { return new URL(link, window.location.origin).pathname; } 
+      catch (e) { return link.startsWith('/') ? link : `/${link}`; }
     };
-    
-    if (normalizeLink(scannedLink) === normalizeLink(currentQuestion.answerLink)) {
-      setFeedback({ message: '🎉 Chính xác! Tuyệt vời! 🎉', type: 'success' });
+    const targetPath = `/nguyen-to/${findElement(currentQuestion.symbol)?.atomicNumber}`;
+    if (normalizePath(scannedLink).includes(targetPath)) {
+      handleSuccess();
     } else {
       setFeedback({ message: '😢 Sai rồi! Hãy thử lại nhé! 😢', type: 'error' });
-    }
-  };
-
-  const handleScan = (detectedCodes) => {
-    if (detectedCodes && detectedCodes.length > 0) {
-      const scannedValue = detectedCodes[0].rawValue;
-      setScanResult(scannedValue);
-      checkAnswerQR(scannedValue);
     }
   };
 
   const handleManualCheck = () => {
-    if (!manualAnswer.trim()) {
-      setFeedback({ message: '📝 Vui lòng nhập ký hiệu nguyên tố', type: 'error' });
-      return;
-    }
-    // So sánh ký hiệu nhập vào với ký hiệu trong dữ liệu (không phân biệt hoa thường)
     if (manualAnswer.trim().toLowerCase() === currentQuestion.symbol.toLowerCase()) {
-      setFeedback({ message: '🎉 Chính xác! Tuyệt vời! 🎉', type: 'success' });
+      handleSuccess();
     } else {
       setFeedback({ message: '😢 Sai rồi! Hãy thử lại nhé! 😢', type: 'error' });
     }
   };
 
+  const randomizeQuestion = () => {
+    setIsAnimating(true);
+    setFeedback({ message: '', type: '' });
+    setManualAnswer('');
+    setShowResultModal(false);
+    setCurrentQuestion(questions[Math.floor(Math.random() * questions.length)]);
+    setTimeout(() => setIsAnimating(false), 300);
+  };
+
   return (
     <div className="question-page-simple">
-      <Link to="/" className="back-home-btn">← Quay lại trang chủ</Link>
-      <div className="question-main-grid">
+      <Link to="/" className="back-home-btn">← Trang chủ</Link>
+      
+      <div className="question-main-grid animate-fade-up">
+        {/* Cột Trái: Câu hỏi & Nhập tay */}
         <div className="question-left-col">
-          <h1 className="question-icon">🔍 Câu hỏi thử thách</h1>
-          <div className={`question-display ${isAnimating ? 'fade-out' : 'fade-in'}`}>
-            <div className="question-text">{currentQuestion.text}</div>
-            <div className="question-hint">💡 Gợi ý: {currentQuestion.hint}</div>
-          </div>
-          
-          <button className="random-btn" onClick={randomizeQuestion}>🔄 Đổi câu hỏi khác</button>
+           <h1 className="question-title">🔍 Thử thách</h1>
+           <div className={`question-display ${isAnimating ? 'fade-out' : 'fade-in'}`}>
+             <div className="question-text">{currentQuestion.text}</div>
+             <div className="question-hint">💡 Gợi ý: {currentQuestion.hint}</div>
+           </div>
+           <button className="random-btn" onClick={randomizeQuestion}>🔄 Đổi câu hỏi</button>
+           
+           <div className="manual-area">
+             <h3>⌨️ Nhập ký hiệu:</h3>
+             <div className="manual-group">
+               <input 
+                 value={manualAnswer} 
+                 onChange={(e) => setManualAnswer(e.target.value)}
+                 onKeyDown={(e) => e.key === 'Enter' && handleManualCheck()}
+                 placeholder="Ví dụ: H, He..."
+               />
+               <button onClick={handleManualCheck}>Gửi</button>
+             </div>
+           </div>
 
-          <div className="manual-area" style={{ marginTop: '20px' }}>
-            <h3>⌨️ Hoặc nhập ký hiệu nguyên tố:</h3>
-            <div className="manual-group">
-              <input
-                type="text"
-                placeholder="Ví dụ: H, He, Li, Be..."
-                value={manualAnswer}
-                onChange={(e) => setManualAnswer(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleManualCheck()} 
-              />
-              <button onClick={handleManualCheck}>Kiểm tra</button>
-            </div>
-          </div>
-
-          {feedback.message && (
-            <div className={`feedback-animated ${feedback.type}`} style={{ marginTop: '15px' }}>
-              {feedback.message}
-            </div>
-          )}
-
+           {feedback.message && <div className={`feedback-animated ${feedback.type}`}>{feedback.message}</div>}
         </div>
+
+        {/* Cột Phải: Máy quét QR */}
         <div className="question-right-col">
-          <div className="scanner-area-simple">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-              <h3>📷 Quét mã QR thẻ bài</h3>
-              {isMobile && (
-                <button onClick={() => setCameraFacing(prev => prev === 'environment' ? 'user' : 'environment')} className="camera-switch-btn">
-                  🔄 {cameraFacing === 'environment' ? 'Chuyển cam trước' : 'Chuyển cam sau'}
-                </button>
-              )}
-            </div>
-            <Scanner
-              key={cameraFacing}
-              onScan={handleScan}
-              onError={console.error}
-              constraints={isMobile ? { facingMode: { exact: cameraFacing } } : undefined}
-              scanDelay={500}
-              style={{ width: '100%', borderRadius: '20px' }}
-            />
-          </div>
-          
-          {scanResult && !feedback.message && (
-            <div className="scan-info-simple">
-              <strong>Link vừa quét:</strong> <code>{scanResult}</code>
-            </div>
-          )}
+           <div className="scanner-area-simple">
+             <h3>📷 Quét mã QR thẻ bài</h3>
+             <div className="scanner-wrapper">
+                <Scanner onScan={(detected) => checkAnswerQR(detected[0]?.rawValue)} />
+             </div>
+           </div>
         </div>
       </div>
+
+      {/* MODAL KẾT QUẢ: Tương thích Mobile */}
+      {showResultModal && matchedElement && (
+      <div className="modal-overlay" onClick={() => setShowResultModal(false)}>
+        <div className="modal-content-wide animate-pop" onClick={(e) => e.stopPropagation()}>
+          <div className="success-header">
+            <h2>🌟 CHÍNH XÁC! 🌟</h2>
+            <p>Bạn đã giải mã thành công nguyên tố:</p>
+          </div>
+
+          {/* Cấu trúc ID Card giống hệt trang ElementPage */}
+          <div className="id-card-wrapper">
+            <div className="id-card-header">
+              <h2>THẺ ĐỊNH DANH NGUYÊN TỐ</h2>
+            </div>
+
+            <div className="id-card-main">
+              <div className="id-card-info">
+                <div className="info-row-top">
+                  <span className="info-label">Số hiệu nguyên tử:</span>
+                  <span className="info-badge">{matchedElement.atomicNumber}</span>
+                </div>
+                
+                <div className="info-name-symbol">
+                  <div className="name-box">
+                    <div className="info-label">Tên nguyên tố:</div>
+                    <div className="element-title">{matchedElement.name}</div>
+                  </div>
+                  <div className="symbol-box">
+                    <div className="info-label">Kí hiệu hóa học:</div>
+                    <div className="element-symbol-large">{matchedElement.symbol}</div>
+                  </div>
+                </div>
+
+                <div className="info-details">
+                  <p><strong>Khối lượng:</strong> {matchedElement.mass} amu</p>
+                  <div className="info-row-split">
+                    <p><strong>Hóa trị:</strong> {matchedElement.valence}</p>
+                    <p><strong>Phân loại:</strong> {matchedElement.classification}</p>
+                  </div>
+                  <p><strong>Vị trí:</strong> {matchedElement.position}</p>
+                </div>
+              </div>
+
+              <div className="id-card-model">
+                <AtomModel 
+                  atomicNumber={matchedElement.atomicNumber} 
+                  symbol={matchedElement.symbol} 
+                />
+              </div>
+            </div>
+
+            <div className="id-card-footer">
+              <p><strong>Đặc điểm:</strong> {matchedElement.characteristics}</p>
+              <p><strong>Ứng dụng:</strong> {matchedElement.applications}</p>
+              <div className="eco-quote">
+                “{matchedElement.ecoNote}” 🌍
+              </div>
+            </div>
+          </div>
+
+          <button className="close-modal-btn" onClick={randomizeQuestion}>
+            Tiếp tục thử thách khác →
+          </button>
+        </div>
+      </div>
+)}
     </div>
   );
 };

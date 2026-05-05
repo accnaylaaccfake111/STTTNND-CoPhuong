@@ -689,3 +689,105 @@
   box-shadow: 0 15px 25px rgba(22, 163, 74, 0.15); 
   border-color: #86efac; 
 }
+
+/* =========================================
+   HIỆU ỨNG VÒNG QUAY ELECTRON (ATOM MODEL)
+   ========================================= */
+
+/* Định nghĩa hiệu ứng quay thuận chiều kim đồng hồ */
+@keyframes spin-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Định nghĩa hiệu ứng quay ngược chiều kim đồng hồ */
+@keyframes spin-counter-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* Đặt tâm quay nằm chính giữa SVG (170/2 = 85) */
+.shell-spin {
+  transform-origin: 85px 85px;
+}
+
+/* Lớp vỏ 1: Gần hạt nhân nhất, quay nhanh, thuận chiều */
+.shell-spin-0 {
+  animation: spin-clockwise 6s linear infinite;
+}
+
+/* Lớp vỏ 2: Quay chậm hơn, ngược chiều */
+.shell-spin-1 {
+  animation: spin-counter-clockwise 10s linear infinite;
+}
+
+/* Lớp vỏ 3: Quay chậm hơn nữa, thuận chiều */
+.shell-spin-2 {
+  animation: spin-clockwise 15s linear infinite;
+}
+
+/* Lớp vỏ 4: Quay chậm nhất, ngược chiều */
+.shell-spin-3 {
+  animation: spin-counter-clockwise 22s linear infinite;
+}
+
+/* --- GRID RESPONSIVE --- */
+.elements-grid {
+  display: grid;
+  /* Mặc định 4 cột cho máy tính */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- MODAL RESPONSIVE --- */
+.modal-content-wide {
+  width: 95%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 24px;
+  padding: 20px;
+}
+
+/* --- ID CARD FLEX RESPONSIVE --- */
+.id-card-main {
+  display: flex;
+  flex-direction: row; /* Ngang trên desktop */
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Tablet: 3 cột */
+@media (max-width: 1024px) {
+  .elements-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Mobile lớn: 2 cột */
+@media (max-width: 768px) {
+  .elements-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  
+  .id-card-main {
+    flex-direction: column; /* Chuyển sang dọc trên mobile */
+    text-align: center;
+  }
+
+  .info-name-symbol {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .element-title { font-size: 1.8rem; }
+  .element-symbol-large { font-size: 3rem; }
+}
+
+/* Mobile nhỏ: 1 cột */
+@media (max-width: 480px) {
+  .elements-grid { grid-template-columns: 1fr; }
+  .element-header h1 { font-size: 1.8rem; }
+}

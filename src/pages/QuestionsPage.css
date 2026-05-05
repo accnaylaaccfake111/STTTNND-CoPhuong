@@ -330,3 +330,173 @@
     padding: 15px;
   }
 }
+/* Animation cho Modal bật ra */
+@keyframes modalPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop {
+  animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.success-header h2 {
+  color: #059669;
+  font-size: 1.5rem;
+}
+
+/* Nút đóng modal phong cách hiện đại */
+.close-modal-btn {
+  display: block;
+  width: 100%;
+  margin-top: 25px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transition: transform 0.2s;
+}
+
+.close-modal-btn:hover {
+  transform: scale(1.02);
+}
+
+/* Tái sử dụng layout ID Card từ ElementPage */
+.id-card-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* =========================================
+   BỔ SUNG GIAO DIỆN ĐIỆN THOẠI (RESPONSIVE)
+   ========================================= */
+
+/* Dành cho máy tính bảng và điện thoại (Dưới 850px) */
+@media (max-width: 850px) {
+  .question-main-grid {
+    /* Chuyển từ 2 cột nằm ngang sang 1 cột dọc */
+    grid-template-columns: 1fr; 
+    padding: 20px;
+    margin-top: 70px; /* Tránh bị nút quay lại đè lên */
+    gap: 20px;
+    width: 95%;
+  }
+
+  .question-left-col {
+    order: 1; /* Câu hỏi hiện lên trước */
+  }
+
+  .question-right-col {
+    order: 2; /* Máy quét hiện bên dưới */
+  }
+
+  /* Chỉnh ID Card trong Modal thành dạng dọc */
+  .result-id-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .result-model-view {
+    width: 100%;
+    max-width: 200px; /* Giới hạn độ lớn mô hình trên đt */
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .res-symbol {
+    font-size: 3.5rem;
+  }
+}
+
+/* Dành cho điện thoại nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+  .question-page-simple {
+    padding: 10px;
+  }
+
+  .question-title {
+    font-size: 1.5rem;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+  }
+
+  /* Cho phép ô nhập liệu và nút bấm xếp chồng nếu quá chật */
+  .manual-group {
+    flex-direction: column;
+  }
+
+  .manual-group button {
+    padding: 12px;
+    width: 100%;
+  }
+
+  .back-home-btn {
+    top: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+
+  .modal-content-result {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .element-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Lớp phủ tối có làm mờ hậu cảnh */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Tối hơn một chút */
+  backdrop-filter: blur(8px); /* HIỆU ỨNG QUAN TRỌNG: Làm mờ camera phía sau */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+/* Nội dung Modal với nền trắng đặc */
+.modal-content-result {
+  background: #ffffff !important; /* Đảm bảo nền trắng đặc hoàn toàn */
+  width: 100%;
+  max-width: 550px;
+  border-radius: 30px;
+  padding: 35px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Khung thông tin nguyên tố bên trong */
+.result-id-card {
+  background: #f8fafc; /* Màu xanh xám nhạt rất nhẹ */
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 25px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
