@@ -5,8 +5,8 @@ export const elements = [
     characteristics: 'Khí không màu, không mùi, nhẹ nhất trong các chất khí.',
     applications: 'Nhiên liệu tên lửa, sản xuất ammonia, bơm bóng bay.',
     ecoNote: 'Nhiên liệu sạch của tương lai. Khi cháy chỉ tạo ra nước, không phát thải khí nhà kính.',
-    introVideo: 'https://drive.google.com/file/d/1ounDnL6ujFt2jeAyUXrqVsU6tCFbyOlt/view',
-    reactionVideo: 'https://drive.google.com/file/d/1UlRXBQtOBf71rhk9lDExKPhxy8vt-Y_V/view',
+    introVideo: 'https://drive.google.com/file/d/1ounDnL6ujFt2jeAyUXrqVsU6tCFbyOlt/preview',
+    reactionVideo: 'https://drive.google.com/file/d/1UlRXBQtOBf71rhk9lDExKPhxy8vt-Y_V/preview',
     questions: [
       { q: 'Hydrogen có số hiệu nguyên tử là?', options: ['1', '2', '3', '4'], correct: '1' },
       { q: 'Nguyên tố nhẹ nhất là?', options: ['Helium', 'Hydrogen', 'Oxygen', 'Carbon'], correct: 'Hydrogen' },
@@ -22,8 +22,8 @@ export const elements = [
     characteristics: 'Khí không màu, không mùi, cực kỳ nhẹ và hầu như không tham gia phản ứng hóa học.',
     applications: 'Bơm bóng bay, làm mát siêu dẫn, khí thở cho thợ lặn sâu.',
     ecoNote: 'Tài nguyên quý hiếm và không tái tạo. Hãy sử dụng tiết kiệm để bảo vệ nguồn khí quý giá này!',
-    introVideo: 'https://drive.google.com/file/d/1tpwmeAGoWzE1jgefOIgYCMD-BRg4gkwh/view?t=6.246',
-    reactionVideo: 'https://drive.google.com/file/d/1r6zn9tqczJSmUyIHdEjD4fOZjLuL5tSC/view',
+    introVideo: 'https://drive.google.com/file/d/1tpwmeAGoWzE1jgefOIgYCMD-BRg4gkwh/preview?t=6.246',
+    reactionVideo: 'https://drive.google.com/file/d/1r6zn9tqczJSmUyIHdEjD4fOZjLuL5tSC/preview',
     questions: [
       { q: 'Helium có mấy electron?', options: ['1', '2', '3', '4'], correct: '2' },
       { q: 'Helium thường được dùng để làm gì?', options: ['Bơm bóng bay', 'Nhiên liệu đốt', 'Thuốc nổ', 'Sản xuất pin'], correct: 'Bơm bóng bay' },
@@ -39,7 +39,7 @@ export const elements = [
     characteristics: 'Kim loại màu trắng bạc, rất mềm và nhẹ nhất, có thể nổi trên dầu hỏa.',
     applications: 'Sản xuất pin Lithium-ion cho điện thoại, xe điện, làm thuốc điều trị tâm lý.',
     ecoNote: 'Trái tim của năng lượng sạch. Tái chế pin Lithium giúp giảm rác thải độc hại.',
-    introVideo: 'https://drive.google.com/file/d/1TJxQxGs2rru75DTHkGZumTa7HjRZKB2_/view?t=1.947', reactionVideo: 'https://drive.google.com/file/d/1QNT-ZyWHlmLeh8fn_3_VSkU62443X0SJ/view',
+    introVideo: 'https://drive.google.com/file/d/1TJxQxGs2rru75DTHkGZumTa7HjRZKB2_/preview?t=1.947', reactionVideo: 'https://drive.google.com/file/d/1QNT-ZyWHlmLeh8fn_3_VSkU62443X0SJ/preview',
     questions: [
       { q: 'Lithium thuộc nhóm nguyên tố nào?', options: ['Kim loại', 'Phi kim', 'Á kim', 'Khí hiếm'], correct: 'Kim loại' },
       { q: 'Ứng dụng phổ biến nhất của Lithium là gì?', options: ['Sản xuất kính', 'Sản xuất pin', 'Xây dựng', 'Phân bón'], correct: 'Sản xuất pin' },
@@ -55,7 +55,7 @@ export const elements = [
     characteristics: 'Kim loại màu xám thép, cứng, nhẹ nhưng giòn ở nhiệt độ phòng.',
     applications: 'Chế tạo hợp kim cho hàng không, tàu vũ trụ, vệ tinh và linh kiện viễn thông.',
     ecoNote: 'Vật liệu siêu bền cho hàng không. Giúp máy bay nhẹ hơn, tiết kiệm nhiên liệu và giảm khí thải',
-    introVideo: 'https://drive.google.com/file/d/1Y7LQrhJRSyiFWrC8NF7y9BP3jTUMhTN3/view?t=12.562', reactionVideo: 'https://drive.google.com/file/d/1e0ajYbcnkMwiuhR7R4YCVbb-zKLU3xgn/view',
+    introVideo: 'https://drive.google.com/file/d/1Y7LQrhJRSyiFWrC8NF7y9BP3jTUMhTN3/preview?t=12.562', reactionVideo: 'https://drive.google.com/file/d/1e0ajYbcnkMwiuhR7R4YCVbb-zKLU3xgn/preview',
     questions: [
       { q: 'Beryllium có số hiệu nguyên tử là?', options: ['2', '3', '4', '5'], correct: '4' },
       { q: 'Bụi Beryllium gây độc hại cho phổi nếu hít phải.', options: ['Đúng', 'Sai'], correct: 'Đúng' },
@@ -71,7 +71,7 @@ export const elements = [
     characteristics: 'Là chất rắn dạng bột màu nâu sẫm hoặc tinh thể đen, cứng chỉ sau kim cương.',
     applications: 'Sản xuất thủy tinh chịu nhiệt (Borosilicate), chất tẩy rửa, thuốc trừ sâu.',
     ecoNote: 'Làm tăng độ bền của vật liệu, giúp tạo ra các thiết bị thí nghiệm dùng được lâu dài, giảm rác thải.',
-    introVideo: 'https://drive.google.com/file/d/1vpJCEob459SjXRGx1BE83TrXpm4dKJDr/view?t=10.24', reactionVideo: 'https://drive.google.com/file/d/1ZMisfEkiSVJV-2bRy-py7g7RIB8c84B8/view',
+    introVideo: 'https://drive.google.com/file/d/1vpJCEob459SjXRGx1BE83TrXpm4dKJDr/preview?t=10.24', reactionVideo: 'https://drive.google.com/file/d/1ZMisfEkiSVJV-2bRy-py7g7RIB8c84B8/preview',
     questions: [
       { q: 'Thông điệp Eco-note của Boron khuyên chúng ta điều gì', options: ['Tái chế thủy tinh', 'Tạo thiết bị thí nghiệm dùng lâu dài để giảm rác thải', 'Không dùng hóa chất'], correct: 'Tạo thiết bị thí nghiệm dùng lâu dài để giảm rác thải' },
       { q: 'Số hiệu nguyên tử của Boron là bao nhiêu?', options: ['4', '5', '6', '7'], correct: '5' },
@@ -87,7 +87,7 @@ export const elements = [
     characteristics: 'Tồn tại dưới nhiều dạng thù hình: than chì (mềm, đen) và kim cương (rất cứng, trong suốt).',
     applications: 'Thành phần cấu tạo cơ thể sống, nhiên liệu, lõi bút chì, đồ trang sức.',
     ecoNote: 'Cân bằng chu trình Carbon. Bảo vệ rừng để hấp thụ khí carbon dioxide, ngăn chặn biến đổi khí hậu.',
-    introVideo: 'https://drive.google.com/file/d/1TKTNCAH_rZyQVnqobVR7NSctOFhs7Auz/view?t=6.91', reactionVideo: 'https://drive.google.com/file/d/1j7ZEcn6-dIO7NwZZkom4I3SO4ysyvSzG/view',
+    introVideo: 'https://drive.google.com/file/d/1TKTNCAH_rZyQVnqobVR7NSctOFhs7Auz/preview?t=6.91', reactionVideo: 'https://drive.google.com/file/d/1j7ZEcn6-dIO7NwZZkom4I3SO4ysyvSzG/preview',
     questions: [
       { q: 'Dạng thù hình nào của Carbon là vật liệu cứng nhất trong tự nhiên?', options: ['Than chì', 'Than đá', 'Kim cương', 'Graphite'], correct: 'Kim cương' },
       { q: 'Số hiệu nguyên tử của Carbon là?', options: ['4', '5', '6', '7'], correct: '6' },
@@ -103,7 +103,7 @@ export const elements = [
     characteristics: 'Chất khí không màu, không mùi, chiếm 78% khí quyển.',
     applications: 'Sản xuất phân đạm, bảo quản thực phẩm, làm mát trong y tế (Nitrogen lỏng).',
     ecoNote: 'Dinh dưỡng xanh cho cây trồng. Sử dụng phân bón đúng cách để bảo vệ nguồn nước và đất.',
-    introVideo: 'https://drive.google.com/file/d/1k-AFEvyadM3yS5YCfX6mTYAVXC06TVAX/view', reactionVideo: 'https://drive.google.com/file/d/1UhHmhuHj0voM2zdtd6nQrMBIO32wEdBp/view',
+    introVideo: 'https://drive.google.com/file/d/1k-AFEvyadM3yS5YCfX6mTYAVXC06TVAX/preview', reactionVideo: 'https://drive.google.com/file/d/1UhHmhuHj0voM2zdtd6nQrMBIO32wEdBp/preview',
     questions: [
       { q: 'Nitrogen chiếm khoảng bao nhiêu % không khí Trái Đất?', options: ['21%', '50%', '78%', '90%'], correct: '78%' },
       { q: 'Số hiệu nguyên tử của Nitrogen là?', options: ['6', '7', '8', '9'], correct: '7' },
@@ -119,7 +119,7 @@ export const elements = [
     characteristics: 'Khí không màu, không mùi, không vị, duy trì sự sống của sinh vật.',
     applications: 'Duy trì sự hô hấp, dùng trong y tế, luyện kim và làm chất đốt hàn cắt.',
     ecoNote: 'Hơi thở của hành tinh. Trồng cây gây rừng là cách tốt nhất để "sản xuất" Oxygen tự nhiên.',
-    introVideo: 'https://drive.google.com/file/d/1Ffb5Ro-03_GsViIaVDoLM2Bl3iffEEef/view', reactionVideo: 'https://drive.google.com/file/d/1Q0i399WYglGHycDpDVQqcadpn9pDdNvC/view',
+    introVideo: 'https://drive.google.com/file/d/1Ffb5Ro-03_GsViIaVDoLM2Bl3iffEEef/preview', reactionVideo: 'https://drive.google.com/file/d/1Q0i399WYglGHycDpDVQqcadpn9pDdNvC/preview',
     questions: [
       { q: 'Ký hiệu hóa học của Oxygen là?', options: ['Ox', 'O', 'Om', 'Oy'], correct: 'O' },
       { q: 'Số hiệu nguyên tử của Oxygen là bao nhiêu?', options: ['6', '7', '8', '9'], correct: '8' },
@@ -135,7 +135,7 @@ export const elements = [
     characteristics: 'Khí màu vàng nhạt, mùi hăng, là phi kim hoạt động mạnh nhất,ăn mòn được thủy tinh.',
     applications: 'Sản xuất kem đánh răng ngừa sâu răng, chế tạo chất chống dính Teflon.',
     ecoNote: 'Bảo vệ nụ cười sạch – Sử dụng kem đánh răng chứa Fluoride vừa đủ để bảo vệ sức khỏe và môi trường.',
-    introVideo: 'https://drive.google.com/file/d/1Zrft-VkI2xSOZiXIr9QzXkNks6KvR2a-/view', reactionVideo: 'https://drive.google.com/file/d/1ye0u-9XXpP4ZchIx6l1bAiB2b58i5NJb/view',
+    introVideo: 'https://drive.google.com/file/d/1Zrft-VkI2xSOZiXIr9QzXkNks6KvR2a-/preview', reactionVideo: 'https://drive.google.com/file/d/1ye0u-9XXpP4ZchIx6l1bAiB2b58i5NJb/preview',
     questions: [
       { q: 'Fluorine có hóa trị mấy?', options: ['I', 'II', 'III', 'IV'], correct: 'I' },
       { q: 'Fluorine thuộc nhóm nguyên tố nào?', options: ['Khí hiếm', 'Kim loại', 'Phi kim', 'Á kim'], correct: 'Phi kim' },
@@ -151,7 +151,7 @@ export const elements = [
     characteristics: 'Khí không màu, khi được kích thích bằng điện sẽ phát ra ánh sáng đỏ cam rực rỡ.',
     applications: 'Chế tạo bóng đèn quảng cáo (đèn neon), laser, thiết bị chỉ thị điện áp.',
     ecoNote: 'Ánh sáng hiệu suất cao. Đèn Neon giúp chiếu sáng hiệu quả, tiết kiệm điện năng cho đô thị',
-    introVideo: 'https://drive.google.com/file/d/1Rd4umPkZWs9Efp1F0XAqR3nfMBnjNN8y/view', reactionVideo: 'https://drive.google.com/file/d/1AwrsZ5wcRiXEPPOhNm_WFJxhDtQeuzn1/view',
+    introVideo: 'https://drive.google.com/file/d/1Rd4umPkZWs9Efp1F0XAqR3nfMBnjNN8y/preview', reactionVideo: 'https://drive.google.com/file/d/1AwrsZ5wcRiXEPPOhNm_WFJxhDtQeuzn1/preview',
     questions: [
       { q: 'Khi có dòng điện chạy qua, khí Neon phát sáng màu gì?', options: ['Xanh dương', 'Tím', 'Đỏ cam', 'Trắng'], correct: 'Đỏ cam' },
       { q: 'Neon thuộc nhóm nguyên tố nào?', options: ['Khí hiếm', 'Kim loại', 'Halogen', 'Phi kim'], correct: 'Khí hiếm' },
@@ -167,7 +167,7 @@ export const elements = [
     characteristics: 'Kim loại màu trắng bạc, rất mềm, có thể cắt bằng dao, phản ứng nổ với nước.',
     applications: 'Thành phần muối ăn (NaCl), đèn cao áp, điều hòa chất lỏng trong cơ thể.',
     ecoNote: 'Sản xuất xà phòng, thành phần chính của muối ăn.',
-    introVideo: 'https://drive.google.com/file/d/1Sr_t0diSEkDpJR8O9FyDdf5lH33dwcKq/view', reactionVideo: 'https://drive.google.com/file/d/1S64oIaDAE4xl3jIjtOSJXTqg5bN5IKYr/view',
+    introVideo: 'https://drive.google.com/file/d/1Sr_t0diSEkDpJR8O9FyDdf5lH33dwcKq/preview', reactionVideo: 'https://drive.google.com/file/d/1S64oIaDAE4xl3jIjtOSJXTqg5bN5IKYr/preview',
     questions: [
       { q: 'Sodium phản ứng với nước sẽ gây ra hiện tượng gì?', options: ['Tan im lặng', 'Kết tủa', 'Phát nổ, bốc cháy', 'Đông đá'], correct: 'Phát nổ, bốc cháy' },
       { q: 'Sodium là thành phần chính trong loại gia vị nào?', options: ['Đường', 'Mì chính', 'Muối ăn', 'Tiêu'], correct: 'Muối ăn' },
@@ -183,7 +183,7 @@ export const elements = [
     characteristics: 'Kim loại màu xám bạc, nhẹ, cháy trong không khí phát ra ánh sáng trắng chói lóa.',
     applications: 'Tạo hợp kim nhẹ cho ô tô/máy bay, thành phần pháo sáng, cần thiết cho cơ bắp.',
     ecoNote: 'Vật liệu xanh cho ngành giao thông, giúp giảm trọng lượng xe và tiết kiệm nhiên liệu.',
-    introVideo: 'https://drive.google.com/file/d/1ILXhqb70E0usPcjHzyGn-pEDHHtitcpe/view', reactionVideo: 'https://drive.google.com/file/d/1SbaoOwDh6rG37JrWb4Q9zYlTUdz6Pkdx/view',
+    introVideo: 'https://drive.google.com/file/d/1ILXhqb70E0usPcjHzyGn-pEDHHtitcpe/preview', reactionVideo: 'https://drive.google.com/file/d/1SbaoOwDh6rG37JrWb4Q9zYlTUdz6Pkdx/preview',
     questions: [
       { q: 'Magnesium cháy tạo ra ánh sáng màu gì?', options: ['Vàng', 'Trắng chói', 'Xanh lục', 'Đỏ'], correct: 'Trắng chói' },
       { q: 'Số hiệu nguyên tử của Magnesium là?', options: ['11', '12', '13', '14'], correct: '12' },
@@ -199,7 +199,7 @@ export const elements = [
     characteristics: 'Nhẹ, màu trắng bạc, dẫn nhiệt và điện tốt, có lớp màng oxide bảo vệ chống gỉ.',
     applications: 'Làm vỏ lon, khung cửa, nồi chảo, lõi dây điện, vật liệu hàng không.',
     ecoNote: 'Vua tái chế! Tái chế nhôm giúp tiết kiệm đến 95% năng lượng so với sản xuất mới.',
-    introVideo: 'https://drive.google.com/file/d/1QHTFm_6dBYTlpbwuCSFMQ0122OVEqoBo/view', reactionVideo: 'https://drive.google.com/file/d/1dWb2J_CLfA4gDuKXqNGLKhqu1ycKHCpk/view',
+    introVideo: 'https://drive.google.com/file/d/1QHTFm_6dBYTlpbwuCSFMQ0122OVEqoBo/preview', reactionVideo: 'https://drive.google.com/file/d/1dWb2J_CLfA4gDuKXqNGLKhqu1ycKHCpk/preview',
     questions: [
       { q: 'Aluminum có khả năng tái chế tốt không?', options: ['Rất khó tái chế', 'Chỉ tái chế được 1 lần', 'Có khả năng tái chế rất tốt', 'Không thể tái chế'], correct: 'Có khả năng tái chế rất tốt' },
       { q: 'Ký hiệu hóa học của Aluminum là?', options: ['Am', 'Al', 'Au', 'An'], correct: 'Al' },
@@ -215,7 +215,7 @@ export const elements = [
     characteristics: 'Chất rắn tinh thể màu xám sẫm có ánh kim, là một chất bán dẫn.',
     applications: 'Chế tạo vi mạch (chip), pin năng lượng mặt trời, sản xuất thủy tinh, silicone.',
     ecoNote: 'Trái tim của cuộc cách mạng số và năng lượng mặt trời, thân thiện với môi trường.',
-    introVideo: 'https://drive.google.com/file/d/1FgsxZ_1D1TW0h58xOVh7swSjKoIAZ9we/view', reactionVideo: 'https://drive.google.com/file/d/1ds451UC3nuoZDtb4MQ9D6ROO5Lm5-k5s/view',
+    introVideo: 'https://drive.google.com/file/d/1FgsxZ_1D1TW0h58xOVh7swSjKoIAZ9we/preview', reactionVideo: 'https://drive.google.com/file/d/1ds451UC3nuoZDtb4MQ9D6ROO5Lm5-k5s/preview',
     questions: [
       { q: 'Silicon cực kỳ quan trọng trong ngành công nghiệp nào?', options: ['Dệt may', 'Thực phẩm', 'Chip điện tử)', 'Đồ gỗ'], correct: 'Công nghệ (Chip điện tử)' },
       { q: 'Số hiệu nguyên tử của Silicon là?', options: ['13', '14', '15', '16'], correct: '14' },
@@ -231,7 +231,7 @@ export const elements = [
     characteristics: 'Tồn tại dưới dạng P trắng (tự bốc cháy) và P đỏ (ít độc hại hơn, dùng làm diêm).',
     applications: 'Sản xuất phân lân (NPK), diêm quẹt, thuốc trừ sâu, và là cấu tạo của DNA.',
     ecoNote: 'Tái chế từ rác thải hữu cơ – Thu hồi Phosphorus từ rác thải để làm phân bón, bảo vệ hệ sinh thái nước.',
-    introVideo: 'https://drive.google.com/file/d/1q82jd1e3__amMb-HNGBBeV1NbIw1l176/view', reactionVideo: 'https://drive.google.com/file/d/16XWucFqFpzrJ0ooq8RitxR9Lw9gTtwJb/view',
+    introVideo: 'https://drive.google.com/file/d/1q82jd1e3__amMb-HNGBBeV1NbIw1l176/preview', reactionVideo: 'https://drive.google.com/file/d/16XWucFqFpzrJ0ooq8RitxR9Lw9gTtwJb/preview',
     questions: [
       { q: 'Phosphorus được dùng làm nguyên liệu chính sản xuất loại phân bón nào?', options: ['Phân đạm', 'Phân lân', 'Phân kali', 'Phân hữu cơ'], correct: 'Phân lân' },
       { q: 'Ký hiệu hóa học của Phosphorus là?', options: ['Ph', 'Po', 'P', 'Pr'], correct: 'P' },
@@ -247,7 +247,7 @@ export const elements = [
     characteristics: 'Chất rắn màu vàng tươi, dễ vụn, khi cháy sinh ra khí có mùi hắc đặc trưng.',
     applications: 'Sản xuất acid sulfuric, lưu hóa cao su, chế tạo thuốc súng, thuốc diệt nấm.',
     ecoNote: 'Nguyên liệu công nghiệp cốt lõi, nhưng khí thải của nó cần kiểm soát để tránh mưa acid.',
-    introVideo: 'https://drive.google.com/file/d/1dx9WAoP_Qq7phGe77ZC7LmQD0N6hB6Fx/view', reactionVideo: 'https://drive.google.com/file/d/1-F-t1fJrxxgKq8BxudkfeKDJ7R-U9eCe/view',
+    introVideo: 'https://drive.google.com/file/d/1dx9WAoP_Qq7phGe77ZC7LmQD0N6hB6Fx/preview', reactionVideo: 'https://drive.google.com/file/d/1-F-t1fJrxxgKq8BxudkfeKDJ7R-U9eCe/preview',
     questions: [
       { q: 'Sulfur nguyên chất tồn tại ở trạng thái rắn có màu gì?', options: ['Trắng', 'Đỏ', 'Vàng tươi', 'Đen'], correct: 'Vàng tươi' },
       { q: 'Ký hiệu hóa học của Sulfur là?', options: ['Su', 'Sf', 'S', 'Sl'], correct: 'S' },
@@ -263,7 +263,7 @@ export const elements = [
     characteristics: 'Khí màu vàng lục nhạt, có mùi hắc, nặng hơn không khí và rất độc nếu hít trực tiếp.',
     applications: 'Khử trùng nước máy, hồ bơi, sản xuất nhựa PVC, chất tẩy trắng.',
     ecoNote: 'Bảo vệ nguồn nước sạch – Sử dụng Chlorine đúng liều lượng để diệt khuẩn, mang lại nước sạch cho mọi người.',
-    introVideo: 'https://drive.google.com/file/d/1krGtZpSXh1m4gKExFnaUxIuQavQCWb_k/view', reactionVideo: 'https://drive.google.com/file/d/18LuAoJ5Vfz81G7lsWGP-ctSIgD0Xlw-F/view',
+    introVideo: 'https://drive.google.com/file/d/1krGtZpSXh1m4gKExFnaUxIuQavQCWb_k/preview', reactionVideo: 'https://drive.google.com/file/d/18LuAoJ5Vfz81G7lsWGP-ctSIgD0Xlw-F/preview',
     questions: [
       { q: 'Ứng dụng phổ biến nhất của Chlorine trong đời sống là gì?', options: ['Làm kẹo', 'Khử trùng nước', 'Bơm lốp xe', 'Làm mát'], correct: 'Khử trùng nước' },
       { q: 'Ký hiệu hóa học của Chlorine là?', options: ['Ch', 'Cl', 'Cr', 'Ce'], correct: 'Cl' },
@@ -279,7 +279,7 @@ export const elements = [
     characteristics: 'Khí không màu, không mùi, hoàn toàn trơ và tạo ánh sáng màu xanh nhạt khi bị kích thích..',
     applications: 'Bơm vào bóng đèn sợi đốt để ngăn dây tóc bị oxy hóa, khí bảo vệ trong hàn kim loại.',
     ecoNote: 'Cách nhiệt thông minh. Sử dụng khí trơ trong cửa kính giúp giữ ấm mùa đông, mát mùa hè, tiết kiệm điện',
-    introVideo: 'https://drive.google.com/file/d/1R054c2dSXIjQ5FqTf9QGDCkJRV2b5omH/view', reactionVideo: 'https://drive.google.com/file/d/1p3uvJ99B6vyL1fvmi6gc9LfZbEhkJ-Y5/view',
+    introVideo: 'https://drive.google.com/file/d/1R054c2dSXIjQ5FqTf9QGDCkJRV2b5omH/preview', reactionVideo: 'https://drive.google.com/file/d/1p3uvJ99B6vyL1fvmi6gc9LfZbEhkJ-Y5/preview',
     questions: [
       { q: 'Argon thuộc nhóm nguyên tố nào?', options: ['Khí hiếm', 'Kim loại', 'Halogen', 'Á kim'], correct: 'Khí hiếm' },
       { q: 'Số hiệu nguyên tử của Argon là bao nhiêu?', options: ['16', '17', '18', '19'], correct: '18' },
@@ -295,7 +295,7 @@ export const elements = [
     characteristics: 'Màu trắng bạc, mềm, bốc cháy tạo ngọn lửa màu tím nhạt khi tiếp xúc với nước.',
     applications: 'Sản xuất phân bón Kali cho cây trồng, chất thay thế muối, cần thiết cho nhịp tim.',
     ecoNote: 'Nguyên tố vàng cho nông nghiệp, giúp thực vật chống chịu khô hạn và sâu bệnh, thích ứng với biến đổi khí hậu khắc nghiệt',
-    introVideo: 'https://drive.google.com/file/d/1pmkjfOOsvXCIvN2fwT7GpooCNiXTtwPM/view', reactionVideo: 'https://drive.google.com/file/d/1VCN0yTrEYV48EM9Nm6gE5xRYXejRZKSk/view',
+    introVideo: 'https://drive.google.com/file/d/1pmkjfOOsvXCIvN2fwT7GpooCNiXTtwPM/preview', reactionVideo: 'https://drive.google.com/file/d/1VCN0yTrEYV48EM9Nm6gE5xRYXejRZKSk/preview',
     questions: [
       { q: 'Potassium nguyên chất khi gặp nước sẽ bốc cháy ngọn lửa màu gì?', options: ['Đỏ rực', 'Xanh lục', 'Tím nhạt', 'Vàng chói'], correct: 'Tím nhạt' },
       { q: 'Số hiệu nguyên tử của Potassium là?', options: ['18', '19', '20', '21'], correct: '19' },
@@ -311,7 +311,7 @@ export const elements = [
     characteristics: 'Kim loại xám bạc, tương đối cứng.',
     applications: 'Thành phần của xi măng, đá vôi, đóng vai trò quan trọng cho sự phát triển của xương và răng.',
     ecoNote: 'Vật liệu xây dựng bền vững – Sử dụng đá vôi hợp lý và tái chế bê tông để bảo vệ cảnh quan thiên nhiên.',
-    introVideo: 'https://drive.google.com/file/d/1wNPInoh5Q-tncj7tiAKHlsGBop3F_E2U/view', reactionVideo: 'https://drive.google.com/file/d/1hNXco5njxNgmblvkS7jC9xDgAR84Q-nL/view',
+    introVideo: 'https://drive.google.com/file/d/1wNPInoh5Q-tncj7tiAKHlsGBop3F_E2U/preview', reactionVideo: 'https://drive.google.com/file/d/1hNXco5njxNgmblvkS7jC9xDgAR84Q-nL/preview',
     questions: [
       { q: 'Calcium tập trung nhiều nhất ở đâu trong cơ thể người?', options: ['Da', 'Mắt', 'Xương và răng', 'Tóc'], correct: 'Xương và răng' },
       { q: 'Số hiệu nguyên tử của Calcium là bao nhiêu?', options: ['18', '19', '20', '21'], correct: '20' },
