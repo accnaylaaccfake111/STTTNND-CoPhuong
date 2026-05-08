@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+// Import logo atom.png ở cùng thư mục
+import atomLogo from '../data/img/atomic-energy.png'; 
 import './Home.css'; 
 
 const Home = () => {
@@ -8,7 +10,12 @@ const Home = () => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>🔬 ĐỊNH DANH NGUYÊN TỐ</h1>
+        {/* Div bao quanh để căn chỉnh logo và tiêu đề */}
+        <div className="logo-title-container">
+            {/* Gắn thẻ img cho logo với class chuyển động */}
+            <img src={atomLogo} alt="Atom Logo" className="moving-logo" />
+            <h1>ĐỊNH DANH NGUYÊN TỐ</h1>
+        </div>
         <p>Khám phá bảng tuần hoàn hoặc quét mã QR để trả lời câu hỏi</p>
       </header>
 

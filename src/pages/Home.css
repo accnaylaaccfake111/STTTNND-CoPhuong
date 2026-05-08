@@ -22,14 +22,14 @@
 }
 
 .home-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
   text-align: center;
-  color: #0369a1; 
-  margin-bottom: 50px;
-  
-  /* Pop-up cho header xuất hiện đầu tiên */
-  opacity: 0; 
-  animation: popupEffect 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-  animation-delay: 0.1s; 
+  padding: 30px; 
+  background-color: transparent; 
+  margin-bottom: 20px;
+  box-shadow: none; 
 }
 
 .home-header h1 {
@@ -128,5 +128,49 @@
   }
   .card {
     width: 90%;
+  }
+}
+
+/* Định nghĩa flex container cho logo và title */
+.logo-title-container {
+  display: flex;
+  align-items: center; /* Căn giữa dọc */
+  gap: 15px; /* Khoảng cách giữa logo và tiêu đề chữ */
+  margin-bottom: 10px; /* Khoảng cách với dòng p ở dưới */
+}
+
+/* Style cho h1 để nó không chiếm toàn bộ chiều rộng mặc định */
+.home-header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  color: #333;
+}
+
+/* Style cho dòng p giới thiệu */
+.home-header p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Style cho logo động */
+.moving-logo {
+  height: 80px; /* Chiều cao cố định của logo */
+  width: auto;   /* Chiều rộng tự động để giữ tỷ lệ */
+  
+  /* Gắn animation xoay: tên animation, thời gian, kiểu chạy, vô tận */
+  animation: rotateAtom 10s linear infinite;
+  
+  /* Đảm bảo logo xoay quanh tâm của chính nó */
+  transform-origin: center;
+}
+
+/* Định nghĩa animation xoay */
+@keyframes rotateAtom {
+  from {
+    transform: rotate(0deg); /* Bắt đầu từ 0 độ */
+  }
+  to {
+    transform: rotate(360deg); /* Xoay đủ 360 độ */
   }
 }
