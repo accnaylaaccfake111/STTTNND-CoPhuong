@@ -5,7 +5,7 @@
 
 .chatbot-toggle-btn {
   width: 60px; height: 60px; border-radius: 50%;
-  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  background: white;
   color: white; border: none; font-size: 24px; cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, background 0.3s ease;
@@ -55,4 +55,21 @@
 
 @media (max-width: 768px) {
   .chatbot-window { width: calc(100vw - 40px); bottom: 90px; right: 20px; }
+}
+
+/* Style cho hình ảnh bên trong nút toggle */
+.bot-icon-img {
+  width: 32px;        /* Điều chỉnh độ lớn của icon theo ý thích */
+  height: 32px;
+  object-fit: contain; /* Giúp ảnh không bị méo */
+  display: block;      /* Xóa khoảng trống thừa dưới thẻ img */
+  margin: 0 auto;
+}
+
+/* Đảm bảo nút toggle hiển thị flex để căn giữa hình ảnh */
+.chatbot-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* ... (giữ nguyên các thuộc tính khác của nút như width, height, border-radius) */
 }

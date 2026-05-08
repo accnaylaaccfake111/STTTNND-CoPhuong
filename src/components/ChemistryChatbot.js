@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ChemistryChatbot.css';
 
+// 1. IMPORT HÌNH ẢNH VÀO ĐÂY (Nhớ thay đổi tên file cho khớp với ảnh thực tế của bạn)
+import botIcon from '../data/img/chatbot-icon.png'; 
+
 const ChemistryChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -29,7 +32,7 @@ const ChemistryChatbot = () => {
 
     const API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
-    // Lọc bỏ dòng chat đầu tiên của Bot để mảng lịch sử bắt đầu bằng 'user'
+    
     const chatHistory = newMessages.filter((msg, index) => index !== 0);
     const contents = chatHistory.map(msg => ({
       role: msg.role === 'model' ? 'model' : 'user',
@@ -41,7 +44,6 @@ const ChemistryChatbot = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          // SỬA LỖI TẠI ĐÂY: systemInstruction (chữ I viết hoa)
           systemInstruction: {
             parts: [{ 
               text: "Bạn là một trợ lý ảo chuyên về Hóa học trên một trang web học tập. Nhiệm vụ TỐI THƯỢNG của bạn là CHỈ trả lời các câu hỏi liên quan đến môn Hóa học, đặc biệt là 20 nguyên tố hóa học đầu tiên trong bảng tuần hoàn. Nếu người dùng hỏi bất kỳ chủ đề nào khác, hãy từ chối một cách lịch sự, ngắn gọn và hướng họ quay lại với chủ đề Hóa học." 
@@ -53,7 +55,6 @@ const ChemistryChatbot = () => {
 
       const data = await response.json();
       
-      // NÂNG CẤP TẠI ĐÂY: Nếu API trả về lỗi, in thẳng lỗi ra màn hình chat
       if (!response.ok) {
         console.error("Lỗi từ Google API:", data);
         const errorMessage = data.error?.message || "Lỗi không xác định từ máy chủ";
@@ -82,8 +83,9 @@ const ChemistryChatbot = () => {
 
   return (
     <div className="chatbot-wrapper">
+      {/* 2. THAY THẾ BIỂU TƯỢNG BẰNG THẺ IMG */}
       <button className={`chatbot-toggle-btn ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? '✕' : '💬'}
+        {isOpen ? '✕' : <img src={botIcon} alt="Chat" className="bot-icon-img" />}
       </button>
 
       {isOpen && (
